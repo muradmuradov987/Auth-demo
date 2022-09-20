@@ -1,6 +1,6 @@
 <template>
   <div class="signUp__form">
-    <h1>SignUp</h1>
+    <h1 class="signUp__title">SignUp</h1>
     <form>
       <div class="form-group mb-3">
         <label for="exampleInputName">Fullname</label>
@@ -38,9 +38,7 @@
       <span class="btn btn-primary" @click="submit()">Submit form</span>
     </form>
     <div class="mt-4">
-      <router-link class="auth__nav__link" to="/login"
-        >Back to Login</router-link
-      >
+      <router-link class="btn btn-secondary" to="/login">Back to Login</router-link>
     </div>
   </div>
 </template>
@@ -86,4 +84,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.signUp__title,label {
+  color: white;
+}
+.btn-primary{
+  background: #42b983;
+  border: none;
+  transition: 0.5s ease;
+  &:hover{
+    background: #42b983;
+  }
+}
 </style>

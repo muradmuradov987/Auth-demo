@@ -1,29 +1,50 @@
 <template>
-  <nav>
-    <!-- <router-link to="/home">Home</router-link> |
-    <router-link to="/about">About</router-link> -->
-    <h1>HOME PAGE</h1>
-    <button @click="$router.push('/')">Log out</button>
-  </nav>
-  
-
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <img src="../assets/logo.png" alt="">
+          <h1>HOME PAGE</h1>
+        </div>
+        
+        <span class="btn btn-danger" @click="logOut()">Log out</span>
+      </nav>
+    </div>
+  </header>
 </template>
 
 <script>
 // @ is an alias to /src
 
-
 export default {
-  name: 'HomeView',
-  components: {
-   
-  }
-}
+  name: "HomeView",
+  methods: {
+    logOut() {
+      this.$store.state.token = "";
+      localStorage.removeItem("token");
+      this.$router.replace("/");
+    },
+  },
+};
 </script>
 
 <style scoped>
 nav {
   padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ 
+}
+
+.logo{
+  display: flex;
+
+}
+.logo img{
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
 }
 
 nav a {

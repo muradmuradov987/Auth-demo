@@ -61,6 +61,7 @@ export default {
         .then((response) => {
           this.$store.state.token = response.data.idToken;
           this.$router.push("/home");
+          localStorage.setItem("token", response.data.idToken)
         })
         .catch(() => {
           console.log("login error");
@@ -76,6 +77,18 @@ export default {
 
 
 <style lang="scss" scoped>
+
+label{
+  color: white;
+}
+.btn-primary{
+  background: #42b983;
+  border: none;
+  transition: 0.5s ease;
+  &:hover{
+    background: #42b983;
+  }
+}
 .signUp {
   color: #42b983;
   cursor: pointer;

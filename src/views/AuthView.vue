@@ -1,8 +1,11 @@
 <template>
   <div class="auth__body">
-    <img class="auth__body__img" src="../assets/img/bg.jpg" alt="" />
     <div class="auth__card">
-      <h1 class="auth__card__title">Welcome</h1>
+      <div class="auth__card__nav">
+        <h1 >Welcome</h1>
+        <img src="../assets/logo.png" alt="" />
+      </div>
+
       <router-view />
     </div>
     <div class="modal succes__modal" v-if="$store.state.modal">
@@ -22,14 +25,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  .auth__body__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
   .modal {
     width: 250px;
     height: 100px;
@@ -37,7 +33,7 @@
     align-items: center;
     justify-content: center;
     color: white;
-    border-radius: 16px;
+    border-radius: 8px;
     position: absolute;
     top: 20px;
     right: 20px;
@@ -53,16 +49,27 @@
 .auth__card {
   width: 500px;
   min-height: 300px;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(9.5px);
   padding: 20px;
   z-index: 1;
-  .auth__card__title {
-    text-align: center;
+  box-shadow: 5px 20px 50px #000;
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: 0.3s ease-in-out;
+  &:hover {
+    border: 2px solid #42b983;
+  }
+  .auth__card__nav {
+    display: flex;
+    justify-content: center;
     margin-bottom: 30px;
     color: #42b983;
+    img{
+      width: 50px;
+      height: 50px;
+      margin-left: 20px;
+    }
   }
 }
 </style>
